@@ -2,12 +2,26 @@
 
 A Mobile Stroke Unit (MSU) is a specialized ambulance with an on-board CT scanner and clinical staff, so stroke diagnosis and treatment (e.g. thrombolysis) can start *before* the patient reaches a hospital. Since a region typically operates only one or a few MSUs, where to base them matters: every minute earlier treatment starts improves the patient's chance of recovering without disability.
 
-This repository is a small example of the two optimization
-models we used in a study on MSU placement in the Oslo region (Norway). It contains **only the mathematical models** and no study data. A tiny synthetic example is included so everything runs out of the box.
+This repository contains optimization models for MSU placement and dispatch,
+including the two coverage models used in our Oslo-region study and the BRAIN
+health-outcome model below. It contains **only code and synthetic examples**, with
+no study data.
 
 - [`msu_models.py`](msu_models.py) — the two models, built with
   [Pyomo](https://www.pyomo.org) so you can use **any solver you like** (HiGHS, CBC, GLPK, Gurobi, CPLEX, etc.)
 - [`example.ipynb`](example.ipynb) — a walkthrough on a synthetic instance, with a map of the resulting placements
+
+## BRAIN
+
+[`brain/brain.py`](brain/brain.py) jointly optimizes one MSU's base and maximum
+dispatch driving time, accounting for vehicle unavailability. It accompanies
+*Time is BRAIN: Joint Optimization of Mobile Stroke Unit Deployment and Dispatch
+to Maximize Patient Health Outcomes* by Berend Markhorst, Caroline Jagtenberg,
+Maren R. Hov and Karianne Larsen — **unpublished manuscript, under journal
+submission**. Please cite this manuscript when using BRAIN; see `CITATION.cff`.
+After installation below, run `jupyter notebook brain/example.ipynb` for a tiny,
+fully synthetic example. BRAIN needs only NumPy and pandas, with no solver.
+Run its checks with `python -m unittest discover -s brain -p "test_*.py"`.
 
 ## The models
 Both models are variants of the **Maximal Covering Location Problem (MCLP)**: choose `p` base locations so that as many stroke patients as possible can be reached within a time threshold.
@@ -101,7 +115,7 @@ Or skip the helper entirely and use the returned Pyomo model with your own solve
 
 ## Citation
 
-These models accompany the following paper — please cite it if you use them:
+The coverage models in `msu_models.py` accompany the following paper — please cite it if you use them:
 
 > Markhorst, B., Jagtenberg, C., Hov, M. R., van der Mei, R., & Larsen, K. (2025).
 > Optimizing mobile stroke unit deployment: A strategic case study in the greater

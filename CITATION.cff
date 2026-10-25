@@ -1,8 +1,9 @@
 cff-version: 1.2.0
 title: Mobile Stroke Unit placement — optimization models
 message: >-
-  If you use these models, please cite the accompanying article listed under
-  preferred-citation.
+  For the coverage models, cite the article under preferred-citation. For BRAIN,
+  cite the unpublished manuscript under references, which is under journal
+  submission.
 type: software
 authors:
   - family-names: Markhorst
@@ -13,7 +14,8 @@ abstract: >-
   Solver-independent Pyomo implementations of the two Maximal Covering Location
   Problem variants used to optimize Mobile Stroke Unit placement: one with plain
   travel-time coverage and one that also allows an ambulance to rendezvous with
-  the MSU en route.
+  the MSU en route. BRAIN jointly optimizes one MSU's base and dispatch radius
+  to maximize expected health outcomes while accounting for vehicle unavailability.
 keywords:
   - mobile stroke unit
   - facility location
@@ -47,3 +49,19 @@ preferred-citation:
   doi: 10.1177/23969873251329862
   publisher:
     name: SAGE Publications
+references:
+  - type: unpublished
+    title: >-
+      Time is BRAIN: Joint Optimization of Mobile Stroke Unit Deployment and
+      Dispatch to Maximize Patient Health Outcomes
+    authors:
+      - family-names: Markhorst
+        given-names: Berend
+        email: berend.markhorst@cwi.nl
+      - family-names: Jagtenberg
+        given-names: Caroline
+      - family-names: Hov
+        given-names: Maren R.
+      - family-names: Larsen
+        given-names: Karianne
+    notes: Unpublished manuscript; under journal submission.

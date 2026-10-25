@@ -2,3 +2,5 @@ pyomo>=6.7
 highspy>=1.7
 matplotlib>=3.8
 notebook>=7.0
+numpy>=1.26
+pandas>=2.2
